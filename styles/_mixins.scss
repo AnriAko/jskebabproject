@@ -1,0 +1,31 @@
+@mixin become-flex{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+@mixin logotype{
+	color:$white-text-color;
+	font-family: 'Damion';
+	font-size: 48px;
+}
+@mixin bottom-logotype{
+	color:$black-text-color;
+	font-family: 'Damion';
+	font-size: 36px;
+}
+@mixin nav-style{
+	color: $white-text-color;
+	text-decoration: none;
+	font-family: 'Poppins';
+	font-weight: 400;
+	font-size: 24px;
+	margin: 0px 12px 0px 12px;
+}
+@mixin bottom-nav-style{
+	color: $black-text-color;
+	text-decoration: none;
+	font-family: 'Poppins';
+	font-weight: 400;
+	font-size: 20px;
+	margin: 0px 12px 0px 12px;
+}

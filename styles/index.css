@@ -1,0 +1,208 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* poppins-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/poppins-v20-latin-regular.woff2");
+}
+/* poppins-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/poppins-v20-latin-600.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* cormorant-garamond-700 - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/cormorant-garamond-v16-latin-700.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* damion-regular - latin */
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Damion";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/damion-v14-latin-regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+body {
+  background-color: rgb(30, 30, 30);
+  color: rgb(170, 170, 170);
+}
+
+.header__image {
+  width: 100%;
+}
+
+.navigation {
+  max-width: 99.05%;
+  background-color: rgb(58, 0, 0);
+  border-top: 3px solid #ffffff;
+  border-bottom: 3px solid #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+.navigation a {
+  color: black;
+  text-decoration: none;
+  text-wrap: nowrap;
+}
+.navigation__list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 24px;
+  margin: 0px 12px 0px 12px;
+}
+.navigation__list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 99.05%;
+}
+
+.fixed-nav {
+  position: relative;
+}
+
+.footer {
+  padding: 12px;
+  background-image: linear-gradient(to bottom, #eb920c, #df0000);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__text {
+  color: black;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0px 12px 0px 12px;
+}
+.footer img {
+  width: 30px;
+}
+.footer a {
+  color: black;
+  text-decoration: none;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  margin: 0px 12px 0px 12px;
+}
+.footer a:hover {
+  color: #ffffff;
+}
+.footer__logo {
+  color: black;
+  font-family: "Damion";
+  font-size: 36px;
+}
+.footer__wrap1 {
+  margin: 0;
+}
+.footer__wrap1 a {
+  margin: 0;
+}
+.footer__wrap1 img {
+  margin: 0;
+}
+.footer__wrap1 a, .footer__wrap3 a {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.footer__wrap1 a img, .footer__wrap3 a img {
+  margin-right: 4px;
+}
+.footer__wrap2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+.footer__wrap2 p {
+  margin-bottom: 20px;
+}
+.footer__wrap2 a {
+  margin-bottom: 8px;
+}
+
+.index-main img {
+  width: 80%;
+}
+.index-main div {
+  width: 80%;
+}/*# sourceMappingURL=index.css.map */

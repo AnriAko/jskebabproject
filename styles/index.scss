@@ -1,0 +1,108 @@
+@import "./reset";
+@import "./colors";
+@import "./fonts";
+@import "./mixins";
+
+body {
+  background-color: $body-background-color;
+  color: $text-color;
+}
+
+.header__image {
+  width: 100%;
+}
+
+.navigation {
+  max-width: 99.05%;
+
+  background-color: rgb(58, 0, 0);
+  border-top: 3px solid $white-text-color;
+  border-bottom: 3px solid $white-text-color;
+  @include become-flex;
+  padding: 16px;
+  & a {
+    color: $black-text-color;
+    text-decoration: none;
+    text-wrap: nowrap;
+  }
+  // Navigation page links
+  &__list a {
+    @include nav-style;
+  }
+  &__list a:hover {
+    color: $white-text-color;
+    text-decoration: underline;
+  }
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  width: 99.05%;
+}
+.fixed-nav {
+  position: absolute;
+}
+.footer {
+  padding: 12px;
+  background-image: linear-gradient(to bottom, $orange-color, $red-color);
+  @include become-flex;
+
+  &__text {
+    @include bottom-nav-style;
+  }
+  & img {
+    width: 30px;
+  }
+  & a {
+    @include bottom-nav-style;
+  }
+  & a:hover {
+    color: $white-text-color;
+  }
+  &__logo {
+    @include bottom-logotype;
+  }
+  &__wrap1 {
+    margin: 0;
+    & a {
+      margin: 0;
+    }
+    & img {
+      margin: 0;
+    }
+  }
+  &__wrap1,
+  &__wrap3 {
+    & a {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+      & img {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &__wrap2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    & p {
+      margin-bottom: 20px;
+    }
+    & a {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.index-main {
+  img {
+    width: 80%;
+  }
+  div{
+    width: 80%;
+  }
+}
