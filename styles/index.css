@@ -138,6 +138,7 @@ body {
 
 .fixed-nav {
   position: absolute;
+  width: 100%;
 }
 
 .footer {
