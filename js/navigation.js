@@ -25,8 +25,8 @@ function navStickFunction() {
 	if (scrollY < headerHeight) removeStickTop();
 
 	function stickTop(){
-		let placeHolder = document.querySelector('.placeHolder');
-		let navigation = document.querySelector("nav");
+		let placeHolder = document.getElementById('placeHolder');
+		let navigation = document.getElementById("navigation");
 
 		//to fill empty space when nav is sticky
 		if(!isPlaceHold){
@@ -41,8 +41,8 @@ function navStickFunction() {
 		//console.log(rect.top);
 	}
 	function removeStickTop(){
-		let placeHolder = document.querySelector('.placeHolder');
-		let navigation = document.querySelector("nav");
+		let placeHolder = document.getElementById('placeHolder');
+		let navigation = document.getElementById("navigation");
 
 		placeHolder.style.height = `0px`;
 		isPlaceHold = false;
@@ -52,8 +52,8 @@ function navStickFunction() {
 	//problems here
 	function fixTop(){
 		isTouchingFooter = true;
-		let navigation = document.querySelector("nav");
-		let placeHolder = document.querySelector('.placeHolder');
+		let navigation = document.getElementById("navigation");
+		let placeHolder = document.getElementById('placeHolder');
 
 		navigation.classList.remove("sticky-nav");
 		placeHolder.style.height = `0px`;
@@ -66,8 +66,8 @@ function navStickFunction() {
 	}
 	function removeFixTop(){
 		isTouchingFooter = false;
-		let navigation = document.querySelector("nav");
-		let placeHolder = document.querySelector('.placeHolder');
+		let navigation = document.getElementById("navigation");
+		let placeHolder = document.getElementById('placeHolder');
 
 		placeHolder.style.height = `${navigation.offsetHeight}px`;
 		isPlaceHold=true;

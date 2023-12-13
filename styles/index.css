@@ -52,6 +52,10 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* poppins-regular - latin */
 @font-face {
   font-display: swap;
@@ -99,7 +103,7 @@ body {
 }
 
 .navigation {
-  max-width: 99.05%;
+  max-width: 100%;
   background-color: rgb(58, 0, 0);
   border-top: 3px solid #ffffff;
   border-bottom: 3px solid #ffffff;
@@ -129,11 +133,11 @@ body {
 .sticky-nav {
   position: fixed;
   top: 0;
-  width: 99.05%;
+  width: 100%;
 }
 
 .fixed-nav {
-  position: relative;
+  position: absolute;
 }
 
 .footer {

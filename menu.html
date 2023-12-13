@@ -14,28 +14,31 @@
 </head>
 
 <body>
+
 	<header class="header">
-		<img class="header_image" src="img/kebab_background.jpg" alt="kebab background">
+		<img class="header__image" src="img/kebab_background.jpg" alt="kebab background">
+		<div class="placeHolder" id="placeHolder">
+
+		</div>
+		<nav class="navigation" id="navigation">
+			<div class="navigation__list">
+				<a href="index.html">Home</a>
+			</div>
+			<div class="navigation__list">
+				<a href="menu.html"> Menu </a>
+				<a href="about.html"> About Us </a>
+				<a href="gallery.html"> Gallery </a>
+				<a href="order.html"> Order </a>
+			</div>
+	
+	
+			<div class="navigation__list">
+				<a href="tel:+995322223322">+995 322 223 322 </a>
+	
+			</div>
+		</nav>
 	</header>
 
-	<nav class="navigation">
-		<div class="navigation__logo">
-			<p>
-				<a href="index.html">Kebab Club</a>
-			</p>
-		</div>
-		<div class="navigation__list">
-			<a href="menu.html"> Menu </a>
-			<a href="gallery.html"> Gallery </a>
-			<a href="order.html"> Order </a>
-			<a href="tel:+995322223322">+995 322 223 322</a>
-			<a href="tel:+995322223322"></a>
-
-		</div>
-		<div>
-
-		</div>
-	</nav>
 <main class="menu_main">
 	<h1 class="logo">Main Menu of Kebab Club</h1>
 	<main class="order_main">
@@ -112,9 +115,9 @@
 
 	<footer class="footer">
 		<div class="footer__wrap1">
-			<p class="navigation__logo">
-				Kebab Club 2023
-			</p>
+			<div class="footer__logo">
+				Kebab Club
+			</div>
 			<a href="https://maps.app.goo.gl/VH3PdunoboBrHQHM9">
 				<img src="img/location.png" alt="location image">
 				<p>University street</p>
@@ -157,7 +160,7 @@
 		</div>
 
 	</footer>
-
+	<script src="js/navigation.js"></script>
 </body>
 
 </html>

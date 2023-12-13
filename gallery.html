@@ -14,31 +14,31 @@
 </head>
 
 <body>
-	<header class="header">
-		<img class="header_image" src="img/kebab_background.jpg" alt="kebab background">
-	</header>
 
+	<header class="header">
+		<img class="header__image" src="img/kebab_background.jpg" alt="kebab background">
+	</header>
+	<div class="placeHolder">
+
+	</div>
 	<nav class="navigation">
-		<div class="navigation__logo">
-			<p>
-				<a href="index.html">Kebab Club</a>
-			</p>
+		<div class="navigation__list">
+			<a href="index.html">Home</a>
 		</div>
 		<div class="navigation__list">
 			<a href="menu.html"> Menu </a>
+			<a href="about.html"> About Us </a>
 			<a href="gallery.html"> Gallery </a>
 			<a href="order.html"> Order </a>
-			<a href="tel:+995322223322">+995 322 223 322</a>
-			<a href="tel:+995322223322"></a>
-
 		</div>
-		<div>
+
+
+		<div class="navigation__list">
+			<a href="tel:+995322223322">+995 322 223 322 </a>
 
 		</div>
 	</nav>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
 <main class="gallery_main">
 	<div class="gallery">
 		<div class="gallery">
@@ -62,9 +62,9 @@
 </main>
 <footer class="footer">
 	<div class="footer__wrap1">
-		<p class="navigation__logo">
-			Kebab Club 2023
-		</p>
+		<div class="footer__logo">
+			Kebab Club
+		</div>
 		<a href="https://maps.app.goo.gl/VH3PdunoboBrHQHM9">
 			<img src="img/location.png" alt="location image">
 			<p>University street</p>
@@ -107,7 +107,7 @@
 	</div>
 
 </footer>
-
+<script src="js/navigation.js"></script>
 </body>
 
 </html>
