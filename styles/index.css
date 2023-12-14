@@ -95,7 +95,7 @@ table {
 }
 body {
   background-color: rgb(30, 30, 30);
-  color: rgb(170, 170, 170);
+  color: rgb(190, 190, 190);
 }
 
 .header__image {
@@ -110,7 +110,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .navigation a {
   color: black;
@@ -143,7 +145,7 @@ body {
 
 .footer {
   padding: 12px;
-  background-image: linear-gradient(to bottom, #eb920c, #df0000);
+  background-image: linear-gradient(to bottom, #bf7300, #b90000);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -205,9 +207,79 @@ body {
   margin-bottom: 8px;
 }
 
-.index-main img {
-  width: 80%;
+.index-main {
+  margin-top: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
-.index-main div {
-  width: 80%;
+.index-main__article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.index-main__article__image img {
+  width: 100%;
+  padding: 20px;
+  border-radius: 8%;
+  min-width: 300px;
+}
+.index-main__article__text {
+  padding: 20px;
+}
+.index-main__article__text h1 {
+  margin-bottom: 28px;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 32px;
+}
+.index-main__article__text h2 {
+  margin-bottom: 24px;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 28px;
+}
+.index-main__article__text p {
+  margin-top: 20px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.index-main__article__text span a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: #bf7300;
+  font-weight: 600;
+  transition: -webkit-text-decoration 0.3s ease-in-out;
+  transition: text-decoration 0.3s ease-in-out;
+  transition: text-decoration 0.3s ease-in-out, -webkit-text-decoration 0.3s ease-in-out;
+}
+.index-main__article__text span a:hover {
+  text-decoration: underline;
+}
+.index-main__article__text span a:active {
+  color: #FFCD42;
+}
+
+.order-main {
+  margin-top: 48px;
+}
+.order-main__client-info {
+  padding-left: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: start;
+}
+.order-main__client-info legend {
+  padding-left: 28px;
+}
+.order-main__client-info label {
+  margin-left: 12px;
 }/*# sourceMappingURL=index.css.map */

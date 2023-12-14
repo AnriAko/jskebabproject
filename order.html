@@ -39,34 +39,48 @@
 		</nav>
 	</header>
 
-	<main class="order_main">
-		<div class="customers-info">
-			<input type="text" id="lastName">
-			<input type="number" id="telNumber">
-			<input type="text" id="peopleAmount">
-		</div>
-		<div class="order">
-			<select name="dish">
-				<option value="Pig kebab" selected></option>
-				<option value="Chicken Kebab"></option>
-				<option value="Pig Khinkali"></option>
-				<option value="Beef Khinkali"></option>
-				<option value="Sheep Khinkali"></option>
-				<option value="Chicken Salad"></option>
-				<option value="Olivie Salad"></option>
+	<main class="order-main">
+		<form>
+			<fieldset class="order-main__client-info">
+				<legend><p> Client info: </p></legend>
+				<label for="lastName">
+					<p>Last name</p>
+					<input type="text" id="lastName">
+				</label>
+				<label for="telNumber">
+					<p>Tel number</p>
+					<input type="number" id="telNumber">
+				</label>
+				<label for="peopleAmount">
+					<p>Amount of people</p>
+					<input type="number" id="peopleAmount">
 
-			</select>
-			<input type="number" id="amount">
+				</label>
+			</fieldset>
+			<fieldset class="order-main__add-to-order">
+				<legend>Choose dish:</legend>
+				<select name="dish" id="dish">
+					<option value="Pork Kebab" selected>Pork kebab 15L</option>
+					<option value="Chicken Kebab">Chicken Kebab 12L</option>
+					<option value="Pork Khinkali">Khinkali with Pork 1.5L</option>
+					<option value="Beef Khinkali">Khinkali with Beef 1.5L</option>
+					<option value="Sheep Khinkali">Khinkali with Mutton 1.5L</option>
+					<option value="Chicken Salad">Chicken Salad 10L</option>
+					<option value="Olivie Salad">Olivie Salad 8L</option>
+				</select>
+				<label for="amount">
+					Choose amount:
+					<input type="number" id="amount">
+				</label>
+				<button>Add To Order</button>
+			</fieldset>
+		</form>
 
-		</div>
 		<div class="orders">
 
 		</div>
-		
-
 
 	</main>
-
 	<footer class="footer">
 		<div class="footer__wrap1">
 			<div class="footer__logo">

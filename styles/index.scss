@@ -19,7 +19,9 @@ body {
   border-top: 3px solid $white-text-color;
   border-bottom: 3px solid $white-text-color;
   @include become-flex;
-  padding: 16px;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   & a {
     color: $black-text-color;
     text-decoration: none;
@@ -90,20 +92,85 @@ body {
     flex-direction: column;
     justify-content: space-around;
     text-align: center;
-    & p {
+    p {
       margin-bottom: 20px;
     }
-    & a {
+    a {
       margin-bottom: 8px;
     }
   }
 }
 
 .index-main {
-  img {
-    width: 80%;
+  margin-top: 48px;
+  @include become-flex;
+  flex-direction: column;
+  &__article {
+    @include become-flex;
+    flex-direction: row;
+    margin-left: 5%;
+    margin-right: 5%;
+    &__image {
+      img {
+        width: 100%;
+        padding: 20px;
+        border-radius: 8%;
+        min-width: 300px;
+      }
+    }
+    &__text {
+      padding: 20px;
+      
+      h1 {
+        margin-bottom: 28px;
+        font-family: "Poppins";
+        font-weight: 600;
+        font-size: 32px;
+      }
+      h2 {
+        margin-bottom: 24px;
+        font-family: "Poppins";
+        font-weight: 600;
+        font-size: 28px;
+      }
+      p {
+        margin-top: 20px;
+
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 20px;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+      span a{
+        white-space: nowrap;
+        text-decoration: none;
+        color:$orange-color;
+        font-weight: 600;
+        transition: text-decoration 0.3s ease-in-out;
+      }
+      span a:hover{
+        text-decoration: underline;
+      }
+      span a:active{
+        color: $yellow-color;
+      }
+    }
   }
-  div{
-    width: 80%;
+}
+.order-main{
+  margin-top: 48px;
+  &__client-info{
+    padding-left: 28px;
+    
+    @include become-flex;
+    justify-content: start;
+    legend{
+      padding-left: 28px;
+    }
+    label{
+      margin-left: 12px;
+
+    }
   }
 }
