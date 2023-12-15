@@ -219,6 +219,10 @@ input[type="number"] {
       font-size: 12px;
 
     }
+    button{
+      width: 115px;
+      height: 30px;
+    }
     
   }
   &__orders{
@@ -273,8 +277,6 @@ input[type="number"] {
           background-color: transparent;
           color: $text-color;
           font-family: "Poppins";
-          font-weight: 600;
-          font-size: 24px;
         }
         &__dish-increase{
           width: 100%;

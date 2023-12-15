@@ -335,6 +335,10 @@ input[type=number] {
   resize: none;
   font-size: 12px;
 }
+.order-main__client-info button, .order-main__order-dish-info button {
+  width: 115px;
+  height: 30px;
+}
 .order-main__orders {
   width: 100%;
 }
@@ -381,8 +385,6 @@ input[type=number] {
   background-color: transparent;
   color: rgb(190, 190, 190);
   font-family: "Poppins";
-  font-weight: 600;
-  font-size: 24px;
 }
 .order-main__orders__list__example__dish-increase {
   width: 100%;
