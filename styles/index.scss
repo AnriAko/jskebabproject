@@ -7,7 +7,16 @@ body {
   background-color: $body-background-color;
   color: $text-color;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
 .header__image {
   width: 100%;
 }
@@ -20,7 +29,6 @@ body {
   border-bottom: 3px solid $white-text-color;
   @include become-flex;
   padding: 10px;
-  padding-left: 20px;
   padding-right: 20px;
   & a {
     color: $black-text-color;
@@ -30,6 +38,7 @@ body {
   // Navigation page links
   &__list a {
     @include nav-style;
+    padding-left: 20px;
   }
   &__list a:hover {
     color: $white-text-color;
@@ -120,7 +129,7 @@ body {
     }
     &__text {
       padding: 20px;
-      
+
       h1 {
         margin-bottom: 28px;
         font-family: "Poppins";
@@ -142,35 +151,170 @@ body {
         margin-bottom: 20px;
         line-height: 1.5;
       }
-      span a{
+      span a {
         white-space: nowrap;
         text-decoration: none;
-        color:$orange-color;
+        color: $orange-color;
         font-weight: 600;
         transition: text-decoration 0.3s ease-in-out;
       }
-      span a:hover{
+      span a:hover {
         text-decoration: underline;
       }
-      span a:active{
+      span a:active {
         color: $yellow-color;
       }
     }
   }
 }
-.order-main{
+.order-main {
   margin-top: 48px;
-  &__client-info{
-    padding-left: 28px;
-    
+  @include become-flex;
+  justify-content: start;
+  align-items: start;
+
+  &__client-info,
+  &__order-dish-info {
+    border: 4px solid $text-color;
+    border-radius: 5%;
+    padding: 28px;
+    padding-right: 36px;
+    margin: 28px;
+    margin-top: 0;
     @include become-flex;
     justify-content: start;
-    legend{
-      padding-left: 28px;
+    flex-direction: column;
+    .legend {
+      font-family: "Poppins";
+      font-weight: 400;
+      font-size: 24px;
+      margin-bottom: 20px;
     }
-    label{
+    
+    label {
       margin-left: 12px;
+      margin-bottom: 20px;
+      p {
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+      font-family: "Poppins";
+      font-weight: 400;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+    input,
+    select,
+    textarea {
+      margin-bottom: 16px;
+      font-family: "Poppins";
+      font-weight: 400;
+      font-size: 16px;
+      width: 250px;
+    }
+    textarea{
+      resize: none;
+      font-size: 12px;
+
+    }
+    
+  }
+  &__orders{
+    width: 100%;
+    h1{
+      font-family: "Poppins";
+      font-weight: 600;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    &__list{
+      &__example{
+        max-width: 450px;
+        max-height: 200px;
+        display: grid;
+
+        grid-template-rows: 22px 22px 28px 128px;
+        grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+        &__image{
+          width: 100%;
+          height: 100%;
+          grid-column: 1/5;
+          grid-row: 1/5;
+          border: 2px solid white;
+        }
+        &__dish-name{
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+
+          grid-column: 5/10;
+          grid-row: 1/2;
+        }
+        &__dish-amount{
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+
+          height: 100%;
+          grid-column: 5/7;
+          grid-row: 2/3;
+        }
+        
+        &__dish-decrease,
+        &__dish-remove,
+        &__dish-increase{
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: transparent;
+          color: $text-color;
+          font-family: "Poppins";
+          font-weight: 600;
+          font-size: 24px;
+        }
+        &__dish-increase{
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+
+          grid-column: 7/8;
+          grid-row: 2/3;
+        }
+        &__dish-decrease{
+          border: 2px solid white;
+
+          grid-column: 8/9;
+          grid-row: 2/3;
+        }
+        &__dish-remove{
+          border: 2px solid white;
+
+          
+          grid-column: 9/10;
+          grid-row: 2/3;
+        }
+        &__dish-summary{
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+          grid-column: 5/10;
+          grid-row: 3/4;
+        }
+        &__dish-comments{
+          grid-row:4/5;
+          grid-column: 5/10;
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+        }
+      }
 
     }
   }
+
+  
 }

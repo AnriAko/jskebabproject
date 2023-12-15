@@ -40,44 +40,69 @@
 	</header>
 
 	<main class="order-main">
-		<form>
-			<fieldset class="order-main__client-info">
-				<legend><p> Client info: </p></legend>
-				<label for="lastName">
-					<p>Last name</p>
-					<input type="text" id="lastName">
-				</label>
-				<label for="telNumber">
-					<p>Tel number</p>
-					<input type="number" id="telNumber">
-				</label>
-				<label for="peopleAmount">
-					<p>Amount of people</p>
-					<input type="number" id="peopleAmount">
+		<aside>
+				<fieldset class="order-main__client-info">
+						<div class="legend"><p> Client info: </p></div>
+					<label for="lastName">
+						<p>Last name</p>
+						<input type="text" id="lastName">
+					</label>
+					<label for="telNumber">
+						<p>Tel number</p>
+						<input type="number" id="telNumber">
+					</label>
+					<label for="peopleAmount">
+						<p>Amount of people</p>
+						<input type="number" id="peopleAmount">
+	
+					</label>
+	
+				</fieldset>
+				<fieldset class="order-main__order-dish-info">
+					<div class="legend"><p>Add to order: </p></div>
+					<label for="dish">
+						<p> Choose dish </p>
+						<select name="dish" id="dish">
+							<option value="Pork Kebab" selected>Pork kebab 15L</option>
+							<option value="Chicken Kebab">Chicken Kebab 12L</option>
+							<option value="Pork Khinkali">Khinkali with Pork 1.5L</option>
+							<option value="Beef Khinkali">Khinkali with Beef 1.5L</option>
+							<option value="Sheep Khinkali">Khinkali with Mutton 1.5L</option>
+							<option value="Chicken Salad">Chicken Salad 10L</option>
+							<option value="Olivie Salad">Olivie Salad 8L</option>
+						</select>
+					</label>
+	
+					<label class="amount" for="amount">
+						<p>Choose amount: </p>
+						<input type="number" id="amount">
+					</label>
+					<label for="comment">
+						<p>Special comment</p>
+						<textarea id="comment" cols="25" rows="5" maxlength="125"></textarea>
+	
+					</label>
+					<button>Add To Order</button>
+				</fieldset>
+		</aside>
+		
 
-				</label>
-			</fieldset>
-			<fieldset class="order-main__add-to-order">
-				<legend>Choose dish:</legend>
-				<select name="dish" id="dish">
-					<option value="Pork Kebab" selected>Pork kebab 15L</option>
-					<option value="Chicken Kebab">Chicken Kebab 12L</option>
-					<option value="Pork Khinkali">Khinkali with Pork 1.5L</option>
-					<option value="Beef Khinkali">Khinkali with Beef 1.5L</option>
-					<option value="Sheep Khinkali">Khinkali with Mutton 1.5L</option>
-					<option value="Chicken Salad">Chicken Salad 10L</option>
-					<option value="Olivie Salad">Olivie Salad 8L</option>
-				</select>
-				<label for="amount">
-					Choose amount:
-					<input type="number" id="amount">
-				</label>
-				<button>Add To Order</button>
-			</fieldset>
-		</form>
+		<div class="order-main__orders">
+			<h1>Your current order:</h1>
+			<p>You don't have any ordered dishes yet</p>
+			<div class="order-main__orders__list">
+				<div class="order-main__orders__list__example" id="chickenKebab">
+					<img class="order-main__orders__list__example__image" src="img/chicken_kebab.jpg" alt="chicken_kebab">
+					<p class="order-main__orders__list__example__dish-name">Chicken Kebab</p>
+					<p class="order-main__orders__list__example__dish-amount">Amount: 10 </p>
+					<button class="order-main__orders__list__example__dish-increase"> + </button>
+					<button class="order-main__orders__list__example__dish-decrease"> - </button>	
+					<button class="order-main__orders__list__example__dish-remove"> x </button>	
 
-		<div class="orders">
-
+					<p class="order-main__orders__list__example__dish-summary">Sum total: <span class ="order-main__orders__list__example__dish-cost">150</span></p>
+					<p class="order-main__orders__list__example__dish-comments">MMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM MMMMMMMMMMMMMMMM MMMMMM MMMMMMMMMMMM MMMMMMMMM MMMMMMMMMMM MMMMMMMM MMMMMMMMMM MMMMMMM MMMMMMMM MMMMMMM </p>
+				</div>
+			</div>
 		</div>
 
 	</main>
@@ -130,7 +155,7 @@
 		</div>
 
 	</footer>
-	<script src="js/navigation.js"></script>
+	<!-- <script src="js/navigation.js"></script> -->
 </body>
 
 </html>
