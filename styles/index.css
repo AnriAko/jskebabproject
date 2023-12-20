@@ -320,6 +320,16 @@ input[type=number] {
   font-size: 16px;
   margin-bottom: 4px;
 }
+.order-main__client-info .wrong-input, .order-main__order-dish-info .wrong-input {
+  color: red;
+}
+.order-main__client-info .wrong-input input,
+.order-main__client-info .wrong-input select,
+.order-main__client-info .wrong-input textarea, .order-main__order-dish-info .wrong-input input,
+.order-main__order-dish-info .wrong-input select,
+.order-main__order-dish-info .wrong-input textarea {
+  border: 2px solid red;
+}
 .order-main__client-info input,
 .order-main__client-info select,
 .order-main__client-info textarea, .order-main__order-dish-info input,
@@ -330,6 +340,15 @@ input[type=number] {
   font-weight: 400;
   font-size: 16px;
   width: 250px;
+  border: 2px solid rgb(30, 30, 30);
+}
+.order-main__client-info input:focus,
+.order-main__client-info select:focus,
+.order-main__client-info textarea:focus, .order-main__order-dish-info input:focus,
+.order-main__order-dish-info select:focus,
+.order-main__order-dish-info textarea:focus {
+  outline: none;
+  border-color: rgb(30, 30, 30);
 }
 .order-main__client-info textarea, .order-main__order-dish-info textarea {
   resize: none;
@@ -338,6 +357,18 @@ input[type=number] {
 .order-main__client-info button, .order-main__order-dish-info button {
   width: 115px;
   height: 30px;
+  cursor: pointer;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 12px;
+}
+.order-main__client-info button:hover, .order-main__order-dish-info button:hover {
+  background-image: linear-gradient(to bottom, #bf7300, #b90000);
+  color: #ffffff;
+}
+.order-main__client-info button:active, .order-main__order-dish-info button:active {
+  background-image: none;
+  background-color: #b90000;
 }
 .order-main__orders {
   width: 100%;
@@ -353,67 +384,115 @@ input[type=number] {
   max-width: 450px;
   max-height: 200px;
   display: grid;
-  grid-template-rows: 22px 22px 28px 128px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
   grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 .order-main__orders__list__example__image {
   width: 100%;
   height: 100%;
-  grid-column: 1/5;
-  grid-row: 1/5;
+  grid-column: 1/4;
+  grid-row: 1/4;
   border: 2px solid white;
 }
 .order-main__orders__list__example__dish-name {
   width: 100%;
   height: 100%;
   border: 2px solid white;
-  grid-column: 5/10;
+  grid-column: 4/10;
   grid-row: 1/2;
+  font-size: 16px;
+  padding-top: 16px;
+  text-align: center;
 }
 .order-main__orders__list__example__dish-amount {
   width: 100%;
   height: 100%;
   border: 2px solid white;
   height: 100%;
-  grid-column: 5/7;
+  grid-column: 4/7;
   grid-row: 2/3;
 }
-.order-main__orders__list__example__dish-decrease, .order-main__orders__list__example__dish-remove, .order-main__orders__list__example__dish-increase {
+.order-main__orders__list__example__dish-amount span {
+  font-weight: 600;
+}
+.order-main__orders__list__example__dish-summary {
+  width: 100%;
+  height: 100%;
+  border: 2px solid white;
+  grid-column: 4/10;
+  grid-row: 3/4;
+}
+.order-main__orders__list__example__dish-summary span {
+  font-weight: 600;
+}
+.order-main__orders__list__example__dish-decrease, .order-main__orders__list__example__dish-remove, .order-main__orders__list__example__dish-increase, .order-main__orders__list__example__dish-edit-comment, .order-main__orders__list__example__dish-remove-comment {
   width: 100%;
   height: 100%;
   border: none;
   background-color: transparent;
   color: rgb(190, 190, 190);
   font-family: "Poppins";
+  border: 2px solid white;
+  cursor: pointer;
 }
 .order-main__orders__list__example__dish-increase {
-  width: 100%;
-  height: 100%;
-  border: 2px solid white;
   grid-column: 7/8;
   grid-row: 2/3;
+  background-color: green;
+  color: black;
+  font-weight: 600;
+  font-size: 24px;
 }
 .order-main__orders__list__example__dish-decrease {
-  border: 2px solid white;
   grid-column: 8/9;
   grid-row: 2/3;
+  background-color: #bf7300;
+  color: black;
+  font-weight: 600;
+  font-size: 24px;
 }
 .order-main__orders__list__example__dish-remove {
-  border: 2px solid white;
   grid-column: 9/10;
   grid-row: 2/3;
+  background-color: #b90000;
+  color: black;
+  font-weight: 600;
+  font-size: 24px;
 }
-.order-main__orders__list__example__dish-summary {
-  width: 100%;
-  height: 100%;
-  border: 2px solid white;
-  grid-column: 5/10;
-  grid-row: 3/4;
+.order-main__orders__list__example__dish-edit-comment {
+  grid-column: 9/10;
+  grid-row: 4/5;
+  background-color: #bf7300;
+}
+.order-main__orders__list__example__dish-edit-comment img {
+  padding: 5%;
+  border: none;
+}
+.order-main__orders__list__example__dish-remove-comment {
+  grid-column: 9/10;
+  grid-row: 5/6;
+  background-color: #b90000;
+}
+.order-main__orders__list__example__dish-remove-comment img {
+  padding: 5%;
+  border: none;
 }
 .order-main__orders__list__example__dish-comments {
-  grid-row: 4/5;
-  grid-column: 5/10;
+  grid-row: 4/6;
+  grid-column: 1/9;
   width: 100%;
   height: 100%;
   border: 2px solid white;
+  background-color: rgb(30, 30, 30);
+  color: rgb(190, 190, 190);
+  resize: none;
+}
+.order-main__orders__list__example__dish-comments:focus {
+  outline: none;
 }/*# sourceMappingURL=index.css.map */

@@ -16,13 +16,13 @@ function navStickFunction() {
 	let distanceToFooter = pageHeight - scrollY - viewportHeight;
 
 	//When user scrolled TO footer
-	(distanceToFooter < footerHeight) && fixTop();
+	if (distanceToFooter < footerHeight) fixTop();
 	//When scrolled BACK from footer
-	(distanceToFooter > footerHeight && isTouchingFooter) && removeFixTop();
+	if(distanceToFooter > footerHeight && isTouchingFooter) removeFixTop();
 	//When user scrolled header
-	(scrollY > headerImageHeight && !isTouchingFooter) && stickTop();
+	if (scrollY > headerImageHeight && !isTouchingFooter) stickTop();
 	//When user scroll back to header
-	(scrollY < headerImageHeight) && removeStickTop();
+	if(scrollY < headerImageHeight) removeStickTop();
 
 	function stickTop(){
 		let placeHolder = document.getElementById('placeHolder');

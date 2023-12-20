@@ -190,10 +190,11 @@ input[type="number"] {
       font-size: 24px;
       margin-bottom: 20px;
     }
-    
+
     label {
       margin-left: 12px;
       margin-bottom: 20px;
+
       p {
         font-family: "Poppins";
         font-weight: 400;
@@ -205,6 +206,14 @@ input[type="number"] {
       font-size: 16px;
       margin-bottom: 4px;
     }
+    .wrong-input {
+      color: red;
+      input,
+      select,
+      textarea {
+        border: 2px solid red;
+      }
+    }
     input,
     select,
     textarea {
@@ -213,110 +222,167 @@ input[type="number"] {
       font-weight: 400;
       font-size: 16px;
       width: 250px;
+      border: 2px solid $body-background-color;
     }
-    textarea{
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: $body-background-color;
+    }
+    textarea {
       resize: none;
       font-size: 12px;
-
     }
-    button{
+    button {
       width: 115px;
       height: 30px;
+      cursor: pointer;
+      font-family: "Poppins";
+      font-weight: 400;
+      font-size: 12px;
     }
-    
+    button:hover {
+      background-image: linear-gradient(to bottom, $orange-color, $red-color);
+      color: $white-text-color;
+    }
+    button:active {
+      background-image: none;
+      background-color: $red-color;
+    }
   }
-  &__orders{
+  &__orders {
     width: 100%;
-    h1{
+    h1 {
       font-family: "Poppins";
       font-weight: 600;
       font-size: 36px;
       text-align: center;
       margin-bottom: 32px;
     }
-
-    &__list{
-      &__example{
+    &__list {
+      &__example {
         max-width: 450px;
         max-height: 200px;
         display: grid;
-
-        grid-template-rows: 22px 22px 28px 128px;
+        grid-template-rows: 50px 50px 50px 50px 50px;
         grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
-        &__image{
+        font-family: "Poppins";
+        font-weight: 400;
+        font-size: 12px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        &__image {
           width: 100%;
           height: 100%;
-          grid-column: 1/5;
-          grid-row: 1/5;
+          grid-column: 1/4;
+          grid-row: 1/4;
           border: 2px solid white;
         }
-        &__dish-name{
+        &__dish-name {
           width: 100%;
           height: 100%;
           border: 2px solid white;
-
-          grid-column: 5/10;
+          grid-column: 4/10;
           grid-row: 1/2;
+          font-size: 16px;
+          padding-top: 16px;
+          text-align: center;
         }
-        &__dish-amount{
+        &__dish-amount {
           width: 100%;
           height: 100%;
           border: 2px solid white;
 
           height: 100%;
-          grid-column: 5/7;
+          grid-column: 4/7;
           grid-row: 2/3;
+          span {
+            font-weight: 600;
+          }
         }
-        
+        &__dish-summary {
+          width: 100%;
+          height: 100%;
+          border: 2px solid white;
+          grid-column: 4/10;
+          grid-row: 3/4;
+          span {
+            font-weight: 600;
+          }
+        }
         &__dish-decrease,
         &__dish-remove,
-        &__dish-increase{
+        &__dish-increase,
+        &__dish-edit-comment,
+        &__dish-remove-comment {
           width: 100%;
           height: 100%;
           border: none;
           background-color: transparent;
           color: $text-color;
           font-family: "Poppins";
-        }
-        &__dish-increase{
-          width: 100%;
-          height: 100%;
           border: 2px solid white;
-
+          cursor: pointer;
+        }
+        &__dish-increase {
           grid-column: 7/8;
           grid-row: 2/3;
+          background-color: green;
+          color: black;
+          font-weight: 600;
+          font-size: 24px;
         }
-        &__dish-decrease{
-          border: 2px solid white;
-
+        &__dish-decrease {
           grid-column: 8/9;
           grid-row: 2/3;
+          background-color: $orange-color;
+          color: black;
+          font-weight: 600;
+          font-size: 24px;
         }
-        &__dish-remove{
-          border: 2px solid white;
-
-          
+        &__dish-remove {
           grid-column: 9/10;
           grid-row: 2/3;
+          background-color: $red-color;
+          color: black;
+          font-weight: 600;
+          font-size: 24px;
         }
-        &__dish-summary{
+        &__dish-edit-comment {
+          grid-column: 9/10;
+          grid-row: 4/5;
+          background-color: $orange-color;
+          img {
+            padding: 5%;
+            border: none;
+          }
+        }
+        &__dish-remove-comment {
+          grid-column: 9/10;
+          grid-row: 5/6;
+          background-color: $red-color;
+          img {
+            padding: 5%;
+            border: none;
+          }
+        }
+
+        &__dish-comments {
+          grid-row: 4/6;
+          grid-column: 1/9;
           width: 100%;
           height: 100%;
           border: 2px solid white;
-          grid-column: 5/10;
-          grid-row: 3/4;
+          background-color: $body-background-color;
+          color: $text-color;
+          resize: none;
         }
-        &__dish-comments{
-          grid-row:4/5;
-          grid-column: 5/10;
-          width: 100%;
-          height: 100%;
-          border: 2px solid white;
+        &__dish-comments:focus {
+          outline: none;
         }
       }
-
     }
   }
-
-  
 }

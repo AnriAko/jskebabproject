@@ -41,29 +41,37 @@
 
 	<main class="order-main">
 		<aside>
+			<form name="ClientInfo" id="ClientInfo">
 				<fieldset class="order-main__client-info">
-						<div class="legend"><p> Client info: </p></div>
+					<div class="legend">
+						<p> Client info: </p>
+					</div>
 					<label for="lastName">
 						<p>Last name</p>
 						<input type="text" id="lastName">
 					</label>
 					<label for="telNumber">
 						<p>Tel number</p>
-						<input type="number" id="telNumber">
+						<input type="number" id="telNumber" placeholder="+9955########">
 					</label>
 					<label for="peopleAmount">
 						<p>Amount of people</p>
 						<input type="number" id="peopleAmount">
-	
+
 					</label>
-	
+
 				</fieldset>
+			</form>
+			<form name="AddToOrderForm" id="AddToOrderForm">
 				<fieldset class="order-main__order-dish-info">
-					<div class="legend"><p>Add to order: </p></div>
-					<label for="dish">
+					<div class="legend">
+						<p>Add to order: </p>
+					</div>
+					<label for="selectDish">
 						<p> Choose dish </p>
-						<select name="dish" id="dish">
-							<option value="Pork Kebab" selected>Pork kebab 15L</option>
+						<select name="selectDish" id="selectDish">
+							<option value="select" selected>Select</option>
+							<option value="Pork Kebab">Pork kebab 15L</option>
 							<option value="Chicken Kebab">Chicken Kebab 12L</option>
 							<option value="Pork Khinkali">Khinkali with Pork 1.5L</option>
 							<option value="Beef Khinkali">Khinkali with Beef 1.5L</option>
@@ -72,35 +80,48 @@
 							<option value="Olivie Salad">Olivie Salad 8L</option>
 						</select>
 					</label>
-	
-					<label class="amount" for="amount">
+
+					<label class="amount" for="dishAmount">
 						<p>Choose amount: </p>
-						<input type="number" id="amount">
+						<input type="number" id="dishAmount">
 					</label>
-					<label for="comment">
-						<p>Special comment</p>
-						<textarea id="comment" cols="25" rows="5" maxlength="125"></textarea>
-	
+					<label for="dishComment">
+						<p>Special request</p>
+						<textarea id="specialRequest" cols="25" rows="5" maxlength="125" placeholder="Example: more sauce"></textarea>
+
 					</label>
-					<button>Add To Order</button>
+					<button id="addToOrder">Add To Order</button>
 				</fieldset>
+			</form>
 		</aside>
-		
+
+
 
 		<div class="order-main__orders">
 			<h1>Your current order:</h1>
 			<p>You don't have any ordered dishes yet</p>
 			<div class="order-main__orders__list">
 				<div class="order-main__orders__list__example" id="chickenKebab">
-					<img class="order-main__orders__list__example__image" src="img/chicken_kebab.jpg" alt="chicken_kebab">
+					<img class="order-main__orders__list__example__image" src="img/chicken_kebab.jpg"
+						alt="chicken_kebab">
 					<p class="order-main__orders__list__example__dish-name">Chicken Kebab</p>
-					<p class="order-main__orders__list__example__dish-amount">Amount: 10 </p>
+					<p class="order-main__orders__list__example__dish-amount">Amount: <span>10</span> </p>
 					<button class="order-main__orders__list__example__dish-increase"> + </button>
-					<button class="order-main__orders__list__example__dish-decrease"> - </button>	
-					<button class="order-main__orders__list__example__dish-remove"> x </button>	
+					<button class="order-main__orders__list__example__dish-decrease"> - </button>
+					<button class="order-main__orders__list__example__dish-remove"> x </button>
 
-					<p class="order-main__orders__list__example__dish-summary">Sum total: <span class ="order-main__orders__list__example__dish-cost">150</span></p>
-					<p class="order-main__orders__list__example__dish-comments">MMMMMMMMMMMMMMMMMM MMMMMMMMMMMMM MMMMMMMMMMMMMMMM MMMMMM MMMMMMMMMMMM MMMMMMMMM MMMMMMMMMMM MMMMMMMM MMMMMMMMMM MMMMMMM MMMMMMMM MMMMMMM </p>
+					<p class="order-main__orders__list__example__dish-summary">Sum total: <span
+							id="chickenSum">150</span>L</p>
+					<textarea class="order-main__orders__list__example__dish-comments" id="chicken_comment_in_order">MMMMM MMMMMMMMMMMMM MMMMMMMMMMMMM
+						MMMMMMMMM MMMMMMM MMMMMM MMMMMMMMMMMM MMMMMMMMM MMMMMMMMMMM MMMMMMMM MMMMMMMMMM MMMMMMM MMMMMMMM
+						MMMMMMM </textarea>
+					<button class="order-main__orders__list__example__dish-edit-comment"> <img
+							class="order-main__orders__list__example__image" src="img/pencil.png" alt="pencil edit">
+					</button>
+					<button class="order-main__orders__list__example__dish-remove-comment"> <img
+							class="order-main__orders__list__example__image" src="img/recycle-bin.png"
+							alt="recycle bin delete"> </button>
+
 				</div>
 			</div>
 		</div>
@@ -155,6 +176,7 @@
 		</div>
 
 	</footer>
+	<script src="js/OrderForms.js"></script>
 	<!-- <script src="js/navigation.js"></script> -->
 </body>
 
