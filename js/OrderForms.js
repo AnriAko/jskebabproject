@@ -324,7 +324,6 @@ function addDishToOrder() {
 				myElement.remove();
 			}
 			function makeEditable(event) {
-				console.log(event.target.parentElement.parentElement);
 				let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
 				mySpecialRequest.readOnly = false;
 				mySpecialRequest.classList.add('editable');
@@ -347,8 +346,9 @@ function addDishToOrder() {
 				event.target.parentElement.remove();
 
 			}
-			function cleanRequest() {
-
+			function cleanRequest(event) {
+				let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
+				mySpecialRequest.value ='';
 			}
 		}
 		else addAmountIfExist(whichDish(dishSelect.value));
