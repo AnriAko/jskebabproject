@@ -157,7 +157,7 @@ input[type=number] {
 
 .footer {
   padding: 12px;
-  background-image: linear-gradient(to bottom, #bf7300, #b90000);
+  background-image: linear-gradient(to bottom, #bf7300, #a60000);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -363,12 +363,13 @@ input[type=number] {
   font-size: 12px;
 }
 .order-main__client-info button:hover, .order-main__order-dish-info button:hover {
-  background-image: linear-gradient(to bottom, #bf7300, #b90000);
+  background-image: linear-gradient(to bottom, #bf7300, #a60000);
   color: #ffffff;
 }
 .order-main__client-info button:active, .order-main__order-dish-info button:active {
   background-image: none;
-  background-color: #b90000;
+  background-color: #a60000;
+  color: #ffffff;
 }
 .order-main__orders {
   width: 100%;
@@ -380,9 +381,9 @@ input[type=number] {
   text-align: center;
   margin-bottom: 32px;
 }
-.order-main__orders__list__example {
+.order-main__orders__list__dish-menu {
   max-width: 450px;
-  max-height: 200px;
+  max-height: 250px;
   display: grid;
   grid-template-rows: 50px 50px 50px 50px 50px;
   grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
@@ -390,48 +391,51 @@ input[type=number] {
   font-weight: 400;
   font-size: 12px;
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
-.order-main__orders__list__example__image {
+.order-main__orders__list__dish-menu__image {
   width: 100%;
   height: 100%;
   grid-column: 1/4;
   grid-row: 1/4;
   border: 2px solid white;
 }
-.order-main__orders__list__example__dish-name {
+.order-main__orders__list__dish-menu__name {
   width: 100%;
   height: 100%;
   border: 2px solid white;
   grid-column: 4/10;
   grid-row: 1/2;
-  font-size: 16px;
-  padding-top: 16px;
+  font-size: 24px;
+  padding-top: 12px;
   text-align: center;
 }
-.order-main__orders__list__example__dish-amount {
+.order-main__orders__list__dish-menu__amount {
   width: 100%;
   height: 100%;
   border: 2px solid white;
+  font-size: 20px;
+  padding-top: 14px;
   height: 100%;
   grid-column: 4/7;
   grid-row: 2/3;
 }
-.order-main__orders__list__example__dish-amount span {
+.order-main__orders__list__dish-menu__amount span {
   font-weight: 600;
 }
-.order-main__orders__list__example__dish-summary {
+.order-main__orders__list__dish-menu__summary {
   width: 100%;
   height: 100%;
   border: 2px solid white;
   grid-column: 4/10;
   grid-row: 3/4;
+  font-size: 24px;
+  padding-top: 12px;
+  font-weight: 400;
 }
-.order-main__orders__list__example__dish-summary span {
-  font-weight: 600;
+.order-main__orders__list__dish-menu__summary span {
+  font-weight: 400;
 }
-.order-main__orders__list__example__dish-decrease, .order-main__orders__list__example__dish-remove, .order-main__orders__list__example__dish-increase, .order-main__orders__list__example__dish-edit-comment, .order-main__orders__list__example__dish-remove-comment {
+.order-main__orders__list__dish-menu__decrease, .order-main__orders__list__dish-menu__remove, .order-main__orders__list__dish-menu__increase, .order-main__orders__list__dish-menu__edit-request, .order-main__orders__list__dish-menu__clean-request {
   width: 100%;
   height: 100%;
   border: none;
@@ -441,15 +445,21 @@ input[type=number] {
   border: 2px solid white;
   cursor: pointer;
 }
-.order-main__orders__list__example__dish-increase {
+.order-main__orders__list__dish-menu__increase {
   grid-column: 7/8;
   grid-row: 2/3;
-  background-color: green;
+  background-color: #008000;
   color: black;
   font-weight: 600;
   font-size: 24px;
 }
-.order-main__orders__list__example__dish-decrease {
+.order-main__orders__list__dish-menu__increase:hover {
+  background-color: #00d700;
+}
+.order-main__orders__list__dish-menu__increase:active {
+  background-color: #008000;
+}
+.order-main__orders__list__dish-menu__decrease {
   grid-column: 8/9;
   grid-row: 2/3;
   background-color: #bf7300;
@@ -457,42 +467,70 @@ input[type=number] {
   font-weight: 600;
   font-size: 24px;
 }
-.order-main__orders__list__example__dish-remove {
+.order-main__orders__list__dish-menu__decrease:hover {
+  background-color: #ff9900;
+}
+.order-main__orders__list__dish-menu__decrease:active {
+  background-color: #bf7300;
+}
+.order-main__orders__list__dish-menu__remove {
   grid-column: 9/10;
   grid-row: 2/3;
-  background-color: #b90000;
+  background-color: #a60000;
   color: black;
   font-weight: 600;
   font-size: 24px;
 }
-.order-main__orders__list__example__dish-edit-comment {
+.order-main__orders__list__dish-menu__remove:hover {
+  background-color: #ff0000;
+}
+.order-main__orders__list__dish-menu__remove:active {
+  background-color: #a60000;
+}
+.order-main__orders__list__dish-menu__edit-request {
   grid-column: 9/10;
   grid-row: 4/5;
   background-color: #bf7300;
 }
-.order-main__orders__list__example__dish-edit-comment img {
+.order-main__orders__list__dish-menu__edit-request img {
   padding: 5%;
   border: none;
 }
-.order-main__orders__list__example__dish-remove-comment {
+.order-main__orders__list__dish-menu__edit-request:hover {
+  background-color: #ff9900;
+}
+.order-main__orders__list__dish-menu__edit-request:active {
+  background-color: #bf7300;
+}
+.order-main__orders__list__dish-menu__clean-request {
   grid-column: 9/10;
   grid-row: 5/6;
-  background-color: #b90000;
+  background-color: #a60000;
 }
-.order-main__orders__list__example__dish-remove-comment img {
+.order-main__orders__list__dish-menu__clean-request img {
   padding: 5%;
   border: none;
 }
-.order-main__orders__list__example__dish-comments {
+.order-main__orders__list__dish-menu__clean-request:hover {
+  background-color: #ff0000;
+}
+.order-main__orders__list__dish-menu__clean-request:active {
+  background-color: #a60000;
+}
+.order-main__orders__list__dish-menu__request {
   grid-row: 4/6;
   grid-column: 1/9;
   width: 100%;
   height: 100%;
   border: 2px solid white;
-  background-color: rgb(30, 30, 30);
+  background-color: rgb(68, 68, 68);
   color: rgb(190, 190, 190);
   resize: none;
 }
-.order-main__orders__list__example__dish-comments:focus {
+.order-main__orders__list__dish-menu__request:focus {
   outline: none;
+}
+
+.editable {
+  background-color: rgb(30, 30, 30);
 }/*# sourceMappingURL=index.css.map */
