@@ -381,12 +381,22 @@ input[type=number] {
   text-align: center;
   margin-bottom: 32px;
 }
+.order-main__orders__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100wv;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-bottom: 20px;
+}
 .order-main__orders__list__dish-menu {
   max-width: 450px;
   max-height: 250px;
+  margin: 8px;
   display: grid;
   grid-template-rows: 50px 50px 50px 50px 50px;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px 50px 50px 50px;
   font-family: "Poppins";
   font-weight: 400;
   font-size: 12px;
@@ -533,4 +543,10 @@ input[type=number] {
 
 .editable {
   background-color: rgb(30, 30, 30);
+}
+
+.cooking-gif {
+  width: 450px;
+  height: 250px;
+  margin: 8px;
 }/*# sourceMappingURL=index.css.map */

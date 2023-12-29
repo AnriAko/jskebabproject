@@ -1,6 +1,13 @@
 'use strict';
 
 let addToOrderButton = document.getElementById('addToOrder');
+addToOrderButton.addEventListener('click', function (event) {
+	event.preventDefault();
+});
+addToOrderButton.addEventListener('click', checkAddToOrderForms);
+
+let makeOrder = document.getElementById('makeOrder');
+makeOrder.addEventListener('click', checkClientInfoForms);
 
 let clientLastName = document.getElementById('lastName');
 let clientTelNumber = document.getElementById('telNumber');
@@ -117,17 +124,14 @@ function rightInputStyle(item) {
 	item.parentElement.classList.remove('wrong-input');
 	return true;
 }
-/* <option value="select" selected>Select</option>
-<option value="Pork Kebab">Pork kebab 15L</option>
-<option value="Chicken Kebab">Chicken Kebab 12L</option>
-<option value="Pork Khinkali">Khinkali with Pork 1.5L</option>
-<option value="Beef Khinkali">Khinkali with Beef 1.5L</option>
-<option value="Sheep Khinkali">Khinkali with Mutton 1.5L</option>
-<option value="Chicken Salad">Chicken Salad 10L</option>
-<option value="Olivie Salad">Olivie Salad 8L</option> */
-addToOrderButton.addEventListener('click', addDishToOrder)
+
+addToOrderButton.addEventListener('click', addDishToOrder);
+
 function addDishToOrder() {
 	if (checkAddToOrderForms()) {
+		let tempSelectedDish = dishSelect.value;
+		let tempChooseAmount = dishAmount.value;
+		let tempSpecialRequest = dishSpecialRequest.value;
 		function whichDish(dishName) {
 			switch (dishName) {
 				case "porkKebab":
@@ -136,7 +140,7 @@ function addDishToOrder() {
 						imgSrc: 'img/pork_kebab.jpg',
 						name: 'Pork Kebab',
 						cost: 15
-					}
+					};
 					return porkKebab;
 
 				case "chickenKebab":
@@ -145,7 +149,7 @@ function addDishToOrder() {
 						imgSrc: 'img/chicken_kebab.jpg',
 						name: 'Chicken Kebab',
 						cost: 12
-					}
+					};
 					return chickenKebab;
 
 				case "porkKhinkali":
@@ -154,7 +158,7 @@ function addDishToOrder() {
 						imgSrc: 'img/khinkali.jpg',
 						name: 'Pork Khinkali',
 						cost: 1.5
-					}
+					};
 					return porkKhinkali;
 
 				case "beefKhinkali":
@@ -163,16 +167,16 @@ function addDishToOrder() {
 						imgSrc: 'img/khinkali.jpg',
 						name: 'Beef Khinkali',
 						cost: 1.5
-					}
+					};
 					return beefKhinkali;
-					
+
 				case "sheepKhinkali":
 					let sheepKhinkali = {
 						id: 'sheepKhinkali',
 						imgSrc: 'img/khinkali.jpg',
 						name: 'Sheep Khinkali',
 						cost: 1.5
-					}
+					};
 					return sheepKhinkali;
 
 				case "chickenSalad":
@@ -181,8 +185,8 @@ function addDishToOrder() {
 						imgSrc: 'img/chicken_salad.jpg',
 						name: 'Chicken Salad',
 						cost: 10
-					}
-						return chickenSalad;
+					};
+					return chickenSalad;
 
 				case "olivieSalad":
 					let olivieSalad = {
@@ -190,174 +194,236 @@ function addDishToOrder() {
 						imgSrc: 'img/olivie_salad.jpg',
 						name: 'Olivie Salad',
 						cost: 8
-					}
+					};
 					return olivieSalad;
-					
-			}
-			
-
-		}
-
-		if (document.getElementById(dishSelect.value) == null) {
-			let currentDish = whichDish(dishSelect.value);
-
-			let dishMenu = document.createElement('div');
-			dishMenu.classList.add('order-main__orders__list__dish-menu');
-			dishMenu.id = currentDish.id;
-
-			initDishMenuImage();
-			initDishMenuName();
-			initDishMenuAmount();
-			initDishMenuIncreaseAmount();
-			initDishMenuDecreaseAmount();
-			initDishMenuRemoveOrder();
-			initDishMenuSummary();
-			initDishMenuRequest();
-			initDishMenuRequestEdit();
-			initDishMenuRequestClean();
-
-			let orderList = document.querySelector('.order-main__orders__list');
-			orderList.appendChild(dishMenu);
-
-			function initDishMenuImage() {
-				let dishMenuImage = document.createElement('img');
-				dishMenuImage.classList.add('order-main__orders__list__dish-menu__image');
-				dishMenuImage.src = currentDish.imgSrc;
-				dishMenuImage.alt = 'Dish image';
-				dishMenu.appendChild(dishMenuImage);
-			}
-			function initDishMenuName() {
-				let dishMenuName = document.createElement('p');
-				dishMenuName.classList.add('order-main__orders__list__dish-menu__name');
-				dishMenuName.textContent = currentDish.name;
-				dishMenu.appendChild(dishMenuName)
-			}
-			function initDishMenuAmount() {
-				let dishMenuAmount = document.createElement('p');
-				dishMenuAmount.classList.add('order-main__orders__list__dish-menu__amount');
-				dishMenuAmount.textContent = 'Amount: ';
-				let dishMenuAmountNumber = document.createElement('span');
-				dishMenuAmountNumber.textContent = dishAmount.value;
-				dishMenuAmount.appendChild(dishMenuAmountNumber);
-				dishMenu.appendChild(dishMenuAmount);
-			}
-			function initDishMenuIncreaseAmount() {
-				let dishMenuIncreaseAmount = document.createElement('button');
-				dishMenuIncreaseAmount.classList.add('order-main__orders__list__dish-menu__increase');
-				dishMenuIncreaseAmount.textContent = '+';
-				dishMenuIncreaseAmount.addEventListener('click', increaseDishAmount);
-				dishMenu.appendChild(dishMenuIncreaseAmount);
-			}
-			function initDishMenuDecreaseAmount() {
-				let dishMenuDecreaseAmount = document.createElement('button');
-				dishMenuDecreaseAmount.classList.add('order-main__orders__list__dish-menu__decrease');
-				dishMenuDecreaseAmount.textContent = '-';
-				dishMenuDecreaseAmount.addEventListener('click', decreaseDishAmount);
-				dishMenu.appendChild(dishMenuDecreaseAmount);
-			}
-			function initDishMenuRemoveOrder() {
-				let dishMenuRemoveOrder = document.createElement('button');
-				dishMenuRemoveOrder.classList.add('order-main__orders__list__dish-menu__remove');
-				dishMenuRemoveOrder.textContent = 'x';
-				//Async add here
-				dishMenuRemoveOrder.addEventListener('click', removeDish);
-				dishMenu.appendChild(dishMenuRemoveOrder);
-			}
-			function initDishMenuSummary() {
-				let dishMenuSummary = document.createElement('p');
-				dishMenuSummary.classList.add('order-main__orders__list__dish-menu__summary');
-				dishMenuSummary.textContent = 'Sum total: ';
-				let dishMenuSummaryNumber = document.createElement('span');
-				dishMenuSummaryNumber.textContent = parseInt(dishAmount.value) * parseFloat(currentDish.cost);
-				dishMenuSummary.appendChild(dishMenuSummaryNumber);
-				dishMenuSummary.innerHTML += ' ₾'
-				dishMenu.append(dishMenuSummary);
-			}
-			function initDishMenuRequest() {
-				let dishMenuRequest = document.createElement('textarea');
-				dishMenuRequest.classList.add('order-main__orders__list__dish-menu__request');
-				dishMenuRequest.value = dishSpecialRequest.value;
-				dishMenuRequest.readOnly = true;
-				dishMenu.append(dishMenuRequest);
-			}
-			function initDishMenuRequestEdit() {
-				let dishMenuRequestEdit = document.createElement('button');
-				dishMenuRequestEdit.classList.add('order-main__orders__list__dish-menu__edit-request');
-				let dishMenuRequestEditImage = document.createElement('img');
-				dishMenuRequestEditImage.classList.add('order-main__orders__list__dish-menu__image');
-				dishMenuRequestEditImage.src = 'img/pencil.png';
-				dishMenuRequestEdit.appendChild(dishMenuRequestEditImage);
-				dishMenuRequestEdit.addEventListener('click', makeEditable);
-				dishMenu.appendChild(dishMenuRequestEdit);
-			}
-			function initDishMenuRequestClean() {
-				let dishMenuRequestClean = document.createElement('button');
-				dishMenuRequestClean.classList.add('order-main__orders__list__dish-menu__clean-request')
-				let dishMenuRequestCleanImage = document.createElement('img');
-				dishMenuRequestCleanImage.classList.add('order-main__orders__list__dish-menu__image');
-				dishMenuRequestCleanImage.src = 'img/recycle-bin.png';
-				dishMenuRequestClean.appendChild(dishMenuRequestCleanImage);
-				dishMenuRequestClean.addEventListener('click', cleanRequest);
-				dishMenu.appendChild(dishMenuRequestClean);
-			}
-
-			function increaseDishAmount(event) {
-				let currentDishAmount = event.target.parentElement.querySelectorAll('span')[0];
-				let currentSummary = event.target.parentElement.querySelectorAll('span')[1];
-				let currentDishAmountNumber = currentDishAmount.textContent;
-				currentDishAmount.textContent = parseInt(currentDishAmountNumber)+1;
-				let currentDishCost = whichDish(event.target.parentElement.id).cost;
-				currentSummary.textContent = parseInt(currentDishAmount.textContent)*parseFloat(currentDishCost);
-
-			}
-			function decreaseDishAmount(event) {
-				let currentDishAmount = event.target.parentElement.querySelectorAll('span')[0];
-				let currentSummary = event.target.parentElement.querySelectorAll('span')[1];
-				let currentDishAmountNumber = currentDishAmount.textContent;
-				currentDishAmount.textContent = parseInt(currentDishAmountNumber)-1;
-				let currentDishCost = whichDish(event.target.parentElement.id).cost;
-				currentSummary.textContent = parseInt(currentDishAmount.textContent)*parseFloat(currentDishCost);
-			}
-			function removeDish(event) {
-				let myElement = document.getElementById(event.target.parentElement.id);
-				console.log(myElement);
-				myElement.remove();
-			}
-			function makeEditable(event) {
-				let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
-				mySpecialRequest.readOnly = false;
-				mySpecialRequest.classList.add('editable');
-
-				let dishMenuRequestEditConfirm = document.createElement('button');
-				dishMenuRequestEditConfirm.classList.add('order-main__orders__list__dish-menu__edit-request');
-				let dishMenuRequestEditConfirmImage = document.createElement('img');
-				dishMenuRequestEditConfirmImage.classList.add('order-main__orders__list__dish-menu__image');
-				dishMenuRequestEditConfirmImage.src = 'img/check.png';
-				dishMenuRequestEditConfirm.appendChild(dishMenuRequestEditConfirmImage);
-				dishMenuRequestEditConfirm.addEventListener('click', confirmEdit);
-				dishMenuRequestEditConfirm.style.zIndex = '100';
-				dishMenu.appendChild(dishMenuRequestEditConfirm);
-
-			}
-			function confirmEdit(event) {
-				let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
-				mySpecialRequest.readOnly = true;
-				mySpecialRequest.classList.remove('editable')
-				event.target.parentElement.remove();
-
-			}
-			function cleanRequest(event) {
-				let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
-				mySpecialRequest.value ='';
 			}
 		}
-		else addAmountIfExist(whichDish(dishSelect.value));
-		function addAmountIfExist(dishFromMenuObj) {
-			let currentAmountOfDishSpan = document.getElementById(dishFromMenuObj.id).querySelectorAll('span')[0];
-			currentAmountOfDishSpan.textContent = parseInt(currentAmountOfDishSpan.textContent) + parseInt(dishAmount.value);
-			let currentSum = document.getElementById(dishFromMenuObj.id).querySelectorAll('span')[1];
-			currentSum.textContent = currentAmountOfDishSpan.textContent * dishFromMenuObj.cost;
-			return false;
+		if (document.getElementById(tempSelectedDish) == null) {
+			cleanAddToOrderForms();
+			makingDish();
+
+			function makingDish() {
+				return disableButton()
+					.then(addCoockingGif)
+					.then(() => delay(1500))
+					.then(() => {
+						deleteGif();
+						initDish();
+						enableButton();
+					})
+					.catch(error => console.error(error));
+
+				function disableButton() {
+					return new Promise((resolve) => {
+						addToOrderButton.setAttribute('disabled', 'true');
+						resolve();
+					});
+				}
+
+				function enableButton() {
+					return new Promise((resolve) => {
+						addToOrderButton.removeAttribute('disabled');
+						resolve();
+					});
+				}
+
+				function addCoockingGif() {
+					return new Promise((resolve) => {
+						let cookingGif = document.createElement('img');
+						cookingGif.src = 'img/cooking.gif';
+						cookingGif.classList.add('cooking-gif');
+						let orderList = document.querySelector('.order-main__orders__list');
+						orderList.appendChild(cookingGif);
+						resolve();
+					});
+				}
+
+				function deleteGif() {
+					return new Promise((resolve) => {
+						let myGifs = document.querySelectorAll('.cooking-gif');
+						myGifs.forEach(function (gifs) {
+							gifs.remove();
+						});
+						resolve();
+					});
+				}
+				function delay(ms) {
+					return new Promise(resolve => setTimeout(resolve, ms));
+				}
+			};
+			function initDish() {
+				cleanAddToOrderForms();
+				const dishObject = initDishObject(whichDish(tempSelectedDish));
+				dishObject.show();
+				function initDishObject(currentDishObject) {
+					let dishMenu = document.createElement('div');
+					dishMenu.classList.add('order-main__orders__list__dish-menu');
+					dishMenu.id = currentDishObject.id;
+					return {
+						initDishMenuImage: function () {
+							let dishMenuImage = document.createElement('img');
+							dishMenuImage.classList.add('order-main__orders__list__dish-menu__image');
+							dishMenuImage.src = currentDishObject.imgSrc;
+							dishMenuImage.alt = 'Dish image';
+							dishMenu.appendChild(dishMenuImage);
+						},
+						initDishMenuName: function () {
+							let dishMenuName = document.createElement('p');
+							dishMenuName.classList.add('order-main__orders__list__dish-menu__name');
+							dishMenuName.textContent = currentDishObject.name;
+							dishMenu.appendChild(dishMenuName);
+						},
+						initDishMenuAmount: function () {
+							let dishMenuAmount = document.createElement('p');
+							dishMenuAmount.classList.add('order-main__orders__list__dish-menu__amount');
+							dishMenuAmount.textContent = 'Amount: ';
+							let dishMenuAmountNumber = document.createElement('span');
+							dishMenuAmountNumber.textContent = tempChooseAmount;
+							dishMenuAmount.appendChild(dishMenuAmountNumber);
+							dishMenu.appendChild(dishMenuAmount);
+						},
+						initDishMenuIncreaseAmount: function () {
+							let dishMenuIncreaseAmount = document.createElement('button');
+							dishMenuIncreaseAmount.classList.add('order-main__orders__list__dish-menu__increase');
+							dishMenuIncreaseAmount.textContent = '+';
+							dishMenuIncreaseAmount.addEventListener('click', this.increaseDishAmount);
+							dishMenu.appendChild(dishMenuIncreaseAmount);
+						},
+						initDishMenuDecreaseAmount: function () {
+							let dishMenuDecreaseAmount = document.createElement('button');
+							dishMenuDecreaseAmount.classList.add('order-main__orders__list__dish-menu__decrease');
+							dishMenuDecreaseAmount.textContent = '-';
+							dishMenuDecreaseAmount.addEventListener('click', this.decreaseDishAmount);
+							dishMenu.appendChild(dishMenuDecreaseAmount);
+						},
+						initDishMenuRemoveOrder: function () {
+							let dishMenuRemoveOrder = document.createElement('button');
+							dishMenuRemoveOrder.classList.add('order-main__orders__list__dish-menu__remove');
+							dishMenuRemoveOrder.textContent = 'x';
+							// Async add here
+							dishMenuRemoveOrder.addEventListener('click', this.removeDish);
+							dishMenu.appendChild(dishMenuRemoveOrder);
+						},
+						initDishMenuSummary: function () {
+							let dishMenuSummary = document.createElement('p');
+							dishMenuSummary.classList.add('order-main__orders__list__dish-menu__summary');
+							dishMenuSummary.textContent = 'Sum total: ';
+							let dishMenuSummaryNumber = document.createElement('span');
+							dishMenuSummaryNumber.textContent = parseInt(tempChooseAmount) * parseFloat(currentDishObject.cost);
+							dishMenuSummary.appendChild(dishMenuSummaryNumber);
+							dishMenuSummary.innerHTML += ' ₾';
+							dishMenu.appendChild(dishMenuSummary);
+						},
+						initDishMenuRequest: function () {
+							let dishMenuRequest = document.createElement('textarea');
+							dishMenuRequest.classList.add('order-main__orders__list__dish-menu__request');
+							dishMenuRequest.value = tempSpecialRequest;
+							dishMenuRequest.readOnly = true;
+							dishMenuRequest.id = `order-main__orders__list__dish-menu__request__${whichDish(tempSelectedDish).id}`;
+							dishMenu.appendChild(dishMenuRequest);
+						},
+						initDishMenuRequestEdit: function () {
+							let dishMenuRequestEdit = document.createElement('button');
+							dishMenuRequestEdit.classList.add('order-main__orders__list__dish-menu__edit-request');
+							let dishMenuRequestEditImage = document.createElement('img');
+							dishMenuRequestEditImage.classList.add('order-main__orders__list__dish-menu__image');
+							dishMenuRequestEditImage.src = 'img/pencil.png';
+							dishMenuRequestEdit.appendChild(dishMenuRequestEditImage);
+							dishMenuRequestEdit.addEventListener('click', this.makeEditable);
+							dishMenu.appendChild(dishMenuRequestEdit);
+						},
+						initDishMenuRequestClean: function () {
+							let dishMenuRequestClean = document.createElement('button');
+							dishMenuRequestClean.classList.add('order-main__orders__list__dish-menu__clean-request');
+							let dishMenuRequestCleanImage = document.createElement('img');
+							dishMenuRequestCleanImage.classList.add('order-main__orders__list__dish-menu__image');
+							dishMenuRequestCleanImage.src = 'img/recycle-bin.png';
+							dishMenuRequestClean.appendChild(dishMenuRequestCleanImage);
+							dishMenuRequestClean.addEventListener('click', this.cleanRequest);
+							dishMenu.appendChild(dishMenuRequestClean);
+						},
+						increaseDishAmount: function (event) {
+							let currentDishAmount = event.target.parentElement.querySelectorAll('span')[0];
+							let currentSummary = event.target.parentElement.querySelectorAll('span')[1];
+							let currentDishAmountNumber = currentDishAmount.textContent;
+							currentDishAmount.textContent = parseInt(currentDishAmountNumber) + 1;
+							let currentDishCost = whichDish(event.target.parentElement.id).cost;
+							currentSummary.textContent = parseInt(currentDishAmount.textContent) * parseFloat(currentDishCost);
+						},
+						decreaseDishAmount: function (event) {
+							let currentDishAmount = event.target.parentElement.querySelectorAll('span')[0];
+							let currentSummary = event.target.parentElement.querySelectorAll('span')[1];
+							let currentDishAmountNumber = currentDishAmount.textContent;
+							if (currentDishAmountNumber >= 2) {
+								currentDishAmount.textContent = parseInt(currentDishAmountNumber) - 1;
+								let currentDishCost = whichDish(event.target.parentElement.id).cost;
+								currentSummary.textContent = parseInt(currentDishAmount.textContent) * parseFloat(currentDishCost);
+							} else {
+								let myElement = document.getElementById(event.target.parentElement.id);
+								myElement.remove();
+							}
+						},
+						removeDish: function (event) {
+							let myElement = document.getElementById(event.target.parentElement.id);
+							myElement.remove();
+						},
+						makeEditable: function (event) {
+							let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
+							mySpecialRequest.readOnly = false;
+							mySpecialRequest.classList.add('editable');
+
+							let dishMenuRequestEditConfirm = document.createElement('button');
+							dishMenuRequestEditConfirm.classList.add('order-main__orders__list__dish-menu__edit-request');
+							let dishMenuRequestEditConfirmImage = document.createElement('img');
+							dishMenuRequestEditConfirmImage.classList.add('order-main__orders__list__dish-menu__image');
+							dishMenuRequestEditConfirmImage.src = 'img/check.png';
+							dishMenuRequestEditConfirm.appendChild(dishMenuRequestEditConfirmImage);
+							dishMenuRequestEditConfirm.addEventListener('click', initDishObject(currentDishObject).confirmEdit);
+							dishMenuRequestEditConfirm.style.zIndex = '100';
+							dishMenu.appendChild(dishMenuRequestEditConfirm);
+						},
+						confirmEdit: function (event) {
+							let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
+							mySpecialRequest.readOnly = true;
+							mySpecialRequest.classList.remove('editable');
+							event.target.parentElement.remove();
+						},
+						cleanRequest: function (event) {
+							let mySpecialRequest = event.target.parentElement.parentElement.querySelector('.order-main__orders__list__dish-menu__request');
+							mySpecialRequest.value = '';
+						},
+						show: function () {
+							this.initDishMenuImage();
+							this.initDishMenuName();
+							this.initDishMenuAmount();
+							this.initDishMenuIncreaseAmount();
+							this.initDishMenuDecreaseAmount();
+							this.initDishMenuRemoveOrder();
+							this.initDishMenuSummary();
+							this.initDishMenuRequest();
+							this.initDishMenuRequestEdit();
+							this.initDishMenuRequestClean();
+							let orderList = document.querySelector('.order-main__orders__list');
+							orderList.appendChild(dishMenu);
+							console.log('done');
+						},
+					}
+				}
+			};
 		}
+	}
+	else addAmountIfExist(whichDish(dishSelect.value));
+	cleanAddToOrderForms();
+	function addAmountIfExist(dishFromMenuObj) {
+		let currentAmountOfDishSpan = document.getElementById(dishFromMenuObj.id).querySelectorAll('span')[0];
+		currentAmountOfDishSpan.textContent = parseInt(currentAmountOfDishSpan.textContent) + parseInt(dishAmount.value);
+		let currentSum = document.getElementById(dishFromMenuObj.id).querySelectorAll('span')[1];
+		currentSum.textContent = currentAmountOfDishSpan.textContent * dishFromMenuObj.cost;
+		return false;
+	}
+	function cleanAddToOrderForms() {
+		dishAmount.value = '';
+		dishSelect.value = 'select';
+		dishSpecialRequest.value = '';
 	}
 }
