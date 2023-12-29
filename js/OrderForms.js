@@ -6,9 +6,6 @@ addToOrderButton.addEventListener('click', function (event) {
 });
 addToOrderButton.addEventListener('click', checkAddToOrderForms);
 
-let makeOrder = document.getElementById('makeOrder');
-makeOrder.addEventListener('click', checkClientInfoForms);
-
 let clientLastName = document.getElementById('lastName');
 let clientTelNumber = document.getElementById('telNumber');
 let clientPeopleAmount = document.getElementById('peopleAmount');
