@@ -129,72 +129,7 @@ function addDishToOrder() {
 		let tempSelectedDish = dishSelect.value;
 		let tempChooseAmount = dishAmount.value;
 		let tempSpecialRequest = dishSpecialRequest.value;
-		function whichDish(dishName) {
-			switch (dishName) {
-				case "porkKebab":
-					let porkKebab = {
-						id: 'porkKebab',
-						imgSrc: 'img/pork_kebab.jpg',
-						name: 'Pork Kebab',
-						cost: 15
-					};
-					return porkKebab;
 
-				case "chickenKebab":
-					let chickenKebab = {
-						id: 'chickenKebab',
-						imgSrc: 'img/chicken_kebab.jpg',
-						name: 'Chicken Kebab',
-						cost: 12
-					};
-					return chickenKebab;
-
-				case "porkKhinkali":
-					let porkKhinkali = {
-						id: 'porkKhinkali',
-						imgSrc: 'img/khinkali.jpg',
-						name: 'Pork Khinkali',
-						cost: 1.5
-					};
-					return porkKhinkali;
-
-				case "beefKhinkali":
-					let beefKhinkali = {
-						id: 'beefKhinkali',
-						imgSrc: 'img/khinkali.jpg',
-						name: 'Beef Khinkali',
-						cost: 1.5
-					};
-					return beefKhinkali;
-
-				case "sheepKhinkali":
-					let sheepKhinkali = {
-						id: 'sheepKhinkali',
-						imgSrc: 'img/khinkali.jpg',
-						name: 'Sheep Khinkali',
-						cost: 1.5
-					};
-					return sheepKhinkali;
-
-				case "chickenSalad":
-					let chickenSalad = {
-						id: 'chickenSalad',
-						imgSrc: 'img/chicken_salad.jpg',
-						name: 'Chicken Salad',
-						cost: 10
-					};
-					return chickenSalad;
-
-				case "olivieSalad":
-					let olivieSalad = {
-						id: 'olivieSalad',
-						imgSrc: 'img/olivie_salad.jpg',
-						name: 'Olivie Salad',
-						cost: 8
-					};
-					return olivieSalad;
-			}
-		}
 		if (document.getElementById(tempSelectedDish) == null) {
 			cleanAddToOrderForms();
 			makingDish();
@@ -250,7 +185,7 @@ function addDishToOrder() {
 			};
 			function initDish() {
 				cleanAddToOrderForms();
-				const dishObject = initDishObject(whichDish(tempSelectedDish));
+				const dishObject = Object.create(initDishObject(whichDish(tempSelectedDish)));
 				dishObject.show();
 				function initDishObject(currentDishObject) {
 					let dishMenu = document.createElement('div');
@@ -407,7 +342,75 @@ function addDishToOrder() {
 					}
 				}
 			};
+		
+			function whichDish(dishName) {
+				switch (dishName) {
+					case "porkKebab":
+						let porkKebab = {
+							id: 'porkKebab',
+							imgSrc: 'img/pork_kebab.jpg',
+							name: 'Pork Kebab',
+							cost: 15
+						};
+						return porkKebab;
+	
+					case "chickenKebab":
+						let chickenKebab = {
+							id: 'chickenKebab',
+							imgSrc: 'img/chicken_kebab.jpg',
+							name: 'Chicken Kebab',
+							cost: 12
+						};
+						return chickenKebab;
+	
+					case "porkKhinkali":
+						let porkKhinkali = {
+							id: 'porkKhinkali',
+							imgSrc: 'img/khinkali.jpg',
+							name: 'Pork Khinkali',
+							cost: 1.5
+						};
+						return porkKhinkali;
+	
+					case "beefKhinkali":
+						let beefKhinkali = {
+							id: 'beefKhinkali',
+							imgSrc: 'img/khinkali.jpg',
+							name: 'Beef Khinkali',
+							cost: 1.5
+						};
+						return beefKhinkali;
+	
+					case "sheepKhinkali":
+						let sheepKhinkali = {
+							id: 'sheepKhinkali',
+							imgSrc: 'img/khinkali.jpg',
+							name: 'Sheep Khinkali',
+							cost: 1.5
+						};
+						return sheepKhinkali;
+	
+					case "chickenSalad":
+						let chickenSalad = {
+							id: 'chickenSalad',
+							imgSrc: 'img/chicken_salad.jpg',
+							name: 'Chicken Salad',
+							cost: 10
+						};
+						return chickenSalad;
+	
+					case "olivieSalad":
+						let olivieSalad = {
+							id: 'olivieSalad',
+							imgSrc: 'img/olivie_salad.jpg',
+							name: 'Olivie Salad',
+							cost: 8
+						};
+						return olivieSalad;
+				}
+			}
 		}
+		
 	}
 	else addAmountIfExist(whichDish(dishSelect.value));
 	cleanAddToOrderForms();
