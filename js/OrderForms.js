@@ -136,7 +136,7 @@ function addDishToOrder() {
 
 			function makingDish() {
 				return disableButton()
-					.then(addCoockingGif)
+					.then(addCookingGif)
 					.then(() => delay(1500))
 					.then(() => {
 						deleteGif();
@@ -159,7 +159,7 @@ function addDishToOrder() {
 					});
 				}
 
-				function addCoockingGif() {
+				function addCookingGif() {
 					return new Promise((resolve) => {
 						let cookingGif = document.createElement('img');
 						cookingGif.src = 'img/cooking.gif';
